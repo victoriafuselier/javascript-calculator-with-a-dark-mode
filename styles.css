@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(0, 0%, 90%);
+}
+
+#calculator {
+    border-radius: 15px;
+    background-color: white;
+    max-width: 250px;
+    overflow: hidden;
+}
+
+#display {
+    background-color: black;
+    width: 100%;
+    border-radius: 15px 15px 0px 0px;
+    padding: 20px;
+    font-size: 2rem;
+    text-align: right;
+    border: none;
+    color: white;
+}
+
+#keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+                        "AC AC AC d"
+                        "7 8 9 m"
+                        "4 5 6 s"
+                        "1 2 3 a"
+                        "% 0 dec e";
+}
+
+#clear-btn {
+    grid-area: AC;
+}
+
+#divide {
+    grid-area: d;
+}
+
+#multiply {
+    grid-area: m;
+}
+
+#subtract {
+    grid-area: s;
+}
+
+#add {
+    grid-area: a;
+}
+
+#equal-btn {
+    grid-area: e;
+}
+
+#decimal {
+    grid-area: dec;
+}
+
+#blankBtn {
+    grid-area: %;
+}
+
+#n0 {
+    grid-area: 0;
+}
+
+#n1 {
+    grid-area: 1;
+}
+
+#n2 {
+    grid-area: 2;
+}
+
+#n3 {
+    grid-area: 3;
+}
+
+#n4 {
+    grid-area: 4;
+}
+
+#n5 {
+    grid-area: 5;
+}
+
+#n6 {
+    grid-area: 6;
+}
+
+#n7 {
+    grid-area: 7;
+}
+
+#n8 {
+    grid-area: 8;
+}
+
+#n9 {
+    grid-area: 9;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.75rem;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.grey-btn {
+    background-color: hsl(0, 0%, 30%);
+}
+
+.grey-btn:hover {
+    background-color: hsl(0, 0%, 40%);
+}
+
+.grey-btn:active {
+    background-color: hsl(0, 0%, 60%);    
+}
