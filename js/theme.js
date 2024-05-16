@@ -1,3 +1,4 @@
+const themeBtn = document.querySelector('#theme-btn');
 const moon = document.getElementById('moon');
 const sun = document.getElementById('sun');
 const body = document.querySelector('body');
@@ -13,6 +14,7 @@ function setDarkMode() {
         lightBackgroundSVGs[i].style.display = 'none';
         darkBackgroundSVGs[i].style.display = 'block';
     }
+    localStorage.setItem('theme', 'dark');
 }
 
 function setLightMode() {
@@ -24,12 +26,23 @@ function setLightMode() {
         darkBackgroundSVGs[i].style.display = 'none';
         lightBackgroundSVGs[i].style.display = 'block';
     }
+    localStorage.setItem('theme', 'light');
 }
 
-moon.addEventListener('click', () => {
-    setDarkMode();
+themeBtn.addEventListener('click', () => {
+    if (body.classList.contains('light')) {
+        setDarkMode();
+    } else {
+        setLightMode();
+    }
 });
 
-sun.addEventListener('click', () => {
-    setLightMode();
+window.addEventListener('load', (e) => {
+    e.preventDefault();
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+        setDarkMode();
+    } else {
+        setLightMode();
+    }
 });
