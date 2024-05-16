@@ -9,44 +9,124 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: hsl(0, 0%, 90%);
+}
+
+#dots-div {
+    height: 350px;
+    width: 520px;
+    z-index: -1;
+    position: relative;
+}
+
+.dots-svg {
+    height: 150px;
+    position: absolute;
+}
+
+.right-dots {
+    bottom: 0;
+    right: 0;
+}
+
+.left-dots {
+    top: 0;
+    left: 0;
+}
+
+.light {
+    background-color: #EDEDED;
+}
+
+.light-dots {
+    display: block;
+}
+
+.light #calculator {
+    background-color: #FFFFFF;
+}
+
+.light button {
+    background-color: #EFF0F5;
+}
+
+.dark {
+    background-color: #242932;
+}
+
+.dark-dots {
+    display: none;
+}
+
+.dark #calculator {
+    background-color: #151920;
+}
+
+.dark button {
+    background-color: #242932;
 }
 
 #calculator {
-    border-radius: 15px;
-    background-color: white;
+    border-radius: 10px;
     max-width: 250px;
     overflow: hidden;
+    z-index: 1;
+    position: absolute;
 }
 
 #display {
-    background-color: black;
     width: 100%;
-    border-radius: 15px 15px 0px 0px;
-    padding: 20px;
-    font-size: 2rem;
-    text-align: right;
-    border: none;
-    color: white;
+    border-radius: 10px;
+    height: 150px;
+    background-color: #151920;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 20px 10px;
 }
 
-#keys {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 
-                        "AC AC AC d"
-                        "7 8 9 m"
-                        "4 5 6 s"
-                        "1 2 3 a"
-                        "% 0 dec e";
+#moon,
+#sun {
+    height: 15px;
+    width: 15px;
+    margin-left: auto;
+    margin-bottom: auto;
+}
+
+#sun {
+    display: none;
+}
+
+#equation,
+#result {
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    text-align: right;
+}
+
+#equation {
+    color: #868BFF;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+#result {
+    color: #D1D3FF;
+    font-size: 2rem;
+    font-weight: 900;
 }
 
 #clear-btn {
     grid-area: AC;
+    width: 100%;
+    border-radius: 10px 0 0 0;
 }
 
 #divide {
     grid-area: d;
+    border-radius: 0 10px 0 0;
 }
 
 #multiply {
@@ -63,74 +143,91 @@ body {
 
 #equal-btn {
     grid-area: e;
+    border-radius: 0 0 10px 0;
 }
 
 #decimal {
     grid-area: dec;
 }
 
-#blankBtn {
-    grid-area: %;
+#blank-btn {
+    grid-area: b;
+    border-radius: 0 0 0 10px;
+    cursor: none;
 }
 
-#n0 {
-    grid-area: 0;
+#zero {
+    grid-area: zero;
 }
 
-#n1 {
-    grid-area: 1;
+#one {
+    grid-area: one;
 }
 
-#n2 {
-    grid-area: 2;
+#two {
+    grid-area: two;
 }
 
-#n3 {
-    grid-area: 3;
+#three {
+    grid-area: three;
 }
 
-#n4 {
-    grid-area: 4;
+#four {
+    grid-area: four;
 }
 
-#n5 {
-    grid-area: 5;
+#five {
+    grid-area: five;
 }
 
-#n6 {
-    grid-area: 6;
+#six {
+    grid-area: six;
 }
 
-#n7 {
-    grid-area: 7;
+#seven {
+    grid-area: seven;
 }
 
-#n8 {
-    grid-area: 8;
+#eight {
+    grid-area: eight;
 }
 
-#n9 {
-    grid-area: 9;
+#nine {
+    grid-area: nine;
+}
+
+#keys {
+    display: grid;
+    padding: 10px;
+    gap: 5px;
+    grid-template-areas:    "AC AC AC d"
+                            "seven eight nine m"
+                            "four five six s"
+                            "one two three a"
+                            "b zero dec e";
 }
 
 button {
-    width: 50px;
     height: 50px;
-    font-size: 1.75rem;
+    font-size: 1rem;
     border: none;
-    color: white;
     font-weight: bold;
     cursor: pointer;
+    color: #747597;
 }
 
-.grey-btn {
-    background-color: hsl(0, 0%, 30%);
+button:hover {
+    background-color: #868BFF;
+    color: #FFFFFF;
 }
 
-.grey-btn:hover {
-    background-color: hsl(0, 0%, 40%);
+button:active {
+    background-color: hsl(238, 100%, 86%);
+    color: #FFFFFF;
 }
 
-.grey-btn:active {
-    background-color: hsl(0, 0%, 60%);    
+@media screen and (max-height: 449px) {
+    body {
+        margin: 100px 0;
+    }
 }
